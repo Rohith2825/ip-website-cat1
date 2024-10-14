@@ -1,0 +1,413 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Learning Image Enhancement</title>
+	<link href="./main.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<!-- Import Poppins Font -->
+</head>
+
+<body>
+	<a href="https://github.com/Rohith2825/ip-contrast-enhancement" class="github-corner"
+		aria-label="View source on Github">
+		<svg width="80" height="80" viewBox="0 0 250 250"
+			style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+			<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+			<path
+				d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+				fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+			<path
+				d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+				fill="currentColor" class="octo-body"></path>
+		</svg>
+	</a>
+
+	<div id="bodyframe">
+		<!-- Main Content Body Frame -->
+		<div id="projectbody">
+			<br />
+			<table width="950" border="0">
+				<tbody>
+					<tr>
+						<td colspan="3">
+							<div align="center"><strong>UCS2523 IMAGE PROCESSING AND ANALYSIS</strong></div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<div align="center" class="xlarge">Image Contrast Enhancement Algorithm using Exposure
+								Fusion Framework</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br />
+
+			<div align="center">
+				<div class="authorname" style="font-size:large;line-adjust:0">
+					Rohith V, Rosan D, Srikrishnan Velayutham
+				</div>
+				<div class="authoraddress" style="line-adjust:0">
+					3122225001111, 3122225001112, 3122225001139
+				</div>
+				<div class="authoremail email" style="line-adjust:0">CSE-C</div>
+
+				<br />
+				<a href="https://github.com/Rohith2825/ip-contrast-enhancement">Source Code Available</a>
+			</div>
+
+			<br />
+
+			<figure align="center">
+				<img src="./images/caip2017_framework.jpg" style="width: 750px; height: 300px;" />
+				<br />
+				<figcaption>Exposure Fusion Framework</figcaption>
+			</figure>
+			
+
+			<br /><br />
+
+			<table width="910" border="0">
+				<tbody>
+					<tr>
+						<td width="10"></td>
+						<td class="large">Objective</td>
+					</tr>
+					<tr>
+						<td width="10"></td>
+						<td width="400">
+							<div align="justify">
+								Low-light images are not conducive to human observation and computer vision algorithms
+								due to their low visibility. Although many image enhancement techniques have been
+								proposed to solve this problem, existing methods inevitably introduce contrast under-
+								and over-enhancement. In this assignment, we propose an exposure fusion framework and an
+								enhancement algorithm to provide an accurate contrast enhancement. Specifically, we
+								first design the weight matrix for image fusion using illumination estimation
+								techniques. Then we introduce an existing camera response model to synthesize multi-exposure
+								images. Next, we find the best exposure ratio so that the synthetic image is
+								well-exposed in the regions where the original image under-exposed. Finally, the input
+								image and the synthetic image are fused according to the weight matrix to obtain the
+								enhancement result. Experiments show that our method can obtain results with less
+								contrast and lightness distortion compared to that of several state-of-the-art methods.
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br />
+
+			<!-- Added Methodology Section -->
+			<table width="910" border="0">
+				<tbody>
+					<tr>
+						<td width="10"></td>
+						<td class="large">Methodology</td>
+					</tr>
+					<tr>
+						<td width="10"></td>
+						<td width="400">
+							<div align="justify">
+								Our methodology involves implementing a novel image contrast enhancement algorithm based
+								on the exposure fusion framework. The steps include:
+								<ul>
+									<li>Estimating illumination to design a weight matrix for image fusion.</li>
+									<li>Synthesizing multi-exposure images using a camera response model.</li>
+									<li>Determining the optimal exposure ratio for well-exposed regions in underexposed
+										areas of the original image.</li>
+									<li>Fusing the input image with the synthetic image based on the weight matrix to
+										enhance contrast while minimizing distortions.</li>
+								</ul>
+								This approach ensures a high-quality contrast enhancement that is more accurate and
+								balanced compared to traditional methods.
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br />
+
+			<!-- Added Performance Measures Section -->
+			<table width="910" border="0">
+				<tbody>
+					<tr>
+						<td width="10"></td>
+						<td class="large">Performance Measures </td>
+					</tr>
+					<tr>
+						<td width="10"></td>
+						<td width="400">
+							<div align="justify">
+								The following metrics are used to evaluate the performance of our algorithm:
+								<ul>
+									<li><strong>Entropy (DE)</strong>: Measures the amount of information in the
+										enhanced image.</li>
+									<li><strong>EME</strong>: Evaluates the edge magnitude and enhancement.</li>
+									<li><strong>AB</strong>: Assessment of brightness in the image.</li>
+									<li><strong>PixDist</strong>: Pixel distribution analysis to assess contrast
+										balance.</li>
+									<li><strong>LOE</strong>: Local contrast evaluation for lightness order errors.</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br /><br />
+			<hr width="920"><br /><br />
+
+			<!-- Comparison Results Section -->
+			<table width="910" border="0">
+				<tbody>
+					<tr>
+						<td width="10"></td>
+						<td class="large">Comparison Results (NASA Dataset)</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br /><br />
+
+			<div id="NASA"></div>
+
+			<hr width="920"><br /><br />
+
+			<table width="910" border="0">
+				<tbody>
+					<tr>
+						<td width="10"></td>
+						<td class="large">Comparison Results (NPE Dataset)</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br /><br />
+
+			<div id="NPE"></div>
+
+			<script language="javascript" type="text/javascript">
+				function switchImage(divElement, imageURL) {
+					document.getElementById(divElement).src = imageURL;
+				}
+
+				var nComps = 0;
+				function addComparisonSet(images, names, pad, width, attachDiv, suppressSpaceAfter, downside) {
+					var imageset = "imageset" + nComps;
+					var fieldset = "field" + nComps;
+					var formset = "form" + nComps;
+
+					var img = "<img id='" + imageset + "' src='" + images[0] + "' style='max-width: 500px;'>";  /* Ensure uniform size */
+					var html;
+
+					if (downside) {
+						html = "<table width='910' align='center' border='0'><tbody><tr><td align='center'>" + img + "</td></tr><td align='center'>";
+					} else {
+						html = "<table width='910' border='0'><tbody><tr><td width='" + pad + "'></td><td width='" + width + "'>" + img + "</td><td width='30'></td><td>";
+					}
+
+					var form = "<form name='" + formset + "'>";
+
+					for (var i = 0; i < images.length; i++) {
+						var checked = "";
+						if (i == 0) {
+							checked = " checked";
+						}
+
+						form += "<input type='radio' name='" + fieldset + "' value='" + i + "' onchange='switchImage( \"" + imageset + "\", \"" + images[i] + "\" )'" + checked + ">" + names[i];
+						if (!downside) {
+							form += "<br/>";
+						}
+					}
+
+					form += "</form>";
+
+					if (downside) {
+						html += form + "</td></tbody></table>";
+					} else {
+						html += form + "</td></tr></tbody></table>";
+					}
+
+					if (!suppressSpaceAfter) {
+						html += "<br><br>";
+					}
+
+					nComps++;
+
+					var tab = document.createElement("DIV");
+					tab.setAttribute('align', 'center');
+					tab.innerHTML = html;
+					document.getElementById(attachDiv).appendChild(tab);
+				}
+
+
+				// Define comparison sets...
+				var names = ["Original",
+					"HE",
+					"BPDHE",
+					"DHECI",
+					"LIME",
+					"AMSR",
+					"Dong",
+					"NPE",
+					"Ours"
+				];
+
+
+				var images3 = ["./images/image3.jpg",
+					"./images/image3__he.PNG",
+					"./images/image3__bpdhe.PNG",
+					"./images/image3__dheci.PNG",
+					"./images/image3__lime.PNG",
+					"./images/image3__amsr.PNG",
+					"./images/image3__dong.PNG",
+					"./images/image3__npe.PNG",
+					"./images/image3__ours_caip2017.PNG",
+				];
+
+				var images4 = ["./images/image4.jpg",
+					"./images/image4__he.PNG",
+					"./images/image4__bpdhe.PNG",
+					"./images/image4__dheci.PNG",
+					"./images/image4__lime.PNG",
+					"./images/image4__amsr.PNG",
+					"./images/image4__dong.PNG",
+					"./images/image4__npe.PNG",
+					"./images/image4__ours_caip2017.PNG",
+				];
+
+				var images15 = ["./images/image15.jpg",
+					"./images/image15__he.PNG",
+					"./images/image15__bpdhe.PNG",
+					"./images/image15__dheci.PNG",
+					"./images/image15__lime.PNG",
+					"./images/image15__amsr.PNG",
+					"./images/image15__dong.PNG",
+					"./images/image15__npe.PNG",
+					"./images/image15__ours_caip2017.PNG",
+				];
+
+				var images17 = ["./images/image17.jpg",
+					"./images/image17__he.PNG",
+					"./images/image17__bpdhe.PNG",
+					"./images/image17__dheci.PNG",
+					"./images/image17__lime.PNG",
+					"./images/image17__amsr.PNG",
+					"./images/image17__dong.PNG",
+					"./images/image17__npe.PNG",
+					"./images/image17__ours_caip2017.PNG",
+				];
+
+				var images22 = ["./images/image22.jpg",
+					"./images/image22__he.PNG",
+					"./images/image22__bpdhe.PNG",
+					"./images/image22__dheci.PNG",
+					"./images/image22__lime.PNG",
+					"./images/image22__amsr.PNG",
+					"./images/image22__dong.PNG",
+					"./images/image22__npe.PNG",
+					"./images/image22__ours_caip2017.PNG",
+				];
+
+				var images23 = ["./images/image23.jpg",
+					"./images/image23__he.PNG",
+					"./images/image23__bpdhe.PNG",
+					"./images/image23__dheci.PNG",
+					"./images/image23__lime.PNG",
+					"./images/image23__amsr.PNG",
+					"./images/image23__dong.PNG",
+					"./images/image23__npe.PNG",
+					"./images/image23__ours_caip2017.PNG",
+				];
+
+				var images1 = ["./images/cloudy (1).bmp",
+					"./images/cloudy (1)_bmp__he.PNG",
+					"./images/cloudy (1)_bmp__bpdhe.PNG",
+					"./images/cloudy (1)_bmp__dheci.PNG",
+					"./images/cloudy (1)_bmp__lime.PNG",
+					"./images/cloudy (1)_bmp__amsr.PNG",
+					"./images/cloudy (1)_bmp__dong.PNG",
+					"./images/cloudy (1)_bmp__npe.PNG",
+					"./images/cloudy (1)_bmp__ours_caip2017.PNG",
+				];
+
+
+				var images1_1 = ["./images/cloudy (16).jpg",
+					"./images/cloudy (16)_jpg__he.PNG",
+					"./images/cloudy (16)_jpg__bpdhe.PNG",
+					"./images/cloudy (16)_jpg__dheci.PNG",
+					"./images/cloudy (16)_jpg__lime.PNG",
+					"./images/cloudy (16)_jpg__amsr.PNG",
+					"./images/cloudy (16)_jpg__dong.PNG",
+					"./images/cloudy (16)_jpg__npe.PNG",
+					"./images/cloudy (16)_jpg__ours_caip2017.PNG",
+				];
+
+				var images2 = ["./images/cloudy (13).bmp",
+					"./images/cloudy (13)_bmp__he.PNG",
+					"./images/cloudy (13)_bmp__bpdhe.PNG",
+					"./images/cloudy (13)_bmp__dheci.PNG",
+					"./images/cloudy (13)_bmp__lime.PNG",
+					"./images/cloudy (13)_bmp__amsr.PNG",
+					"./images/cloudy (13)_bmp__dong.PNG",
+					"./images/cloudy (13)_bmp__npe.PNG",
+					"./images/cloudy (13)_bmp__ours_caip2017.PNG",
+				];
+
+				var images5 = ["./images/cloudy (13).jpg",
+					"./images/cloudy (13)_jpg__he.PNG",
+					"./images/cloudy (13)_jpg__bpdhe.PNG",
+					"./images/cloudy (13)_jpg__dheci.PNG",
+					"./images/cloudy (13)_jpg__lime.PNG",
+					"./images/cloudy (13)_jpg__amsr.PNG",
+					"./images/cloudy (13)_jpg__dong.PNG",
+					"./images/cloudy (13)_jpg__npe.PNG",
+					"./images/cloudy (13)_jpg__ours_caip2017.PNG",
+				];
+
+				var images6 = ["./images/Daybreak&Nightfall  (2).jpg",
+					"./images/Daybreak&Nightfall  (2)__he.PNG",
+					"./images/Daybreak&Nightfall  (2)__bpdhe.PNG",
+					"./images/Daybreak&Nightfall  (2)__dheci.PNG",
+					"./images/Daybreak&Nightfall  (2)__lime.PNG",
+					"./images/Daybreak&Nightfall  (2)__amsr.PNG",
+					"./images/Daybreak&Nightfall  (2)__dong.PNG",
+					"./images/Daybreak&Nightfall  (2)__npe.PNG",
+					"./images/Daybreak&Nightfall  (2)__ours_caip2017.PNG",
+				];
+
+				// Add comparison set to document
+				addComparisonSet(images3, names, 250, 100, "NASA",false, true);
+				addComparisonSet(images4, names, 250, 100, "NASA",false, true);
+				addComparisonSet(images15, names, 250, 100, "NASA",false, true);
+				addComparisonSet(images17, names, 250, 100, "NASA",false, true);
+				addComparisonSet(images22, names, 200, 100, "NASA",false, true);
+				addComparisonSet(images23, names, 200, 100, "NASA",false, true);
+
+				// Add more comparison sets to document
+				addComparisonSet(images1, names, 50, 10, "NPE",false, true);
+				addComparisonSet(images1_1, names, 50, 10, "NPE", false, true);
+				addComparisonSet(images2, names, 50, 10, "NPE", false, true);
+			</script>
+
+			<hr width="920"><br /><br />
+			
+		</div>
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
